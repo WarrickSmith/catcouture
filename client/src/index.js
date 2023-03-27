@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/catcouture">
       <Auth0ProviderWithHistory>
         <GlobalStyle />
         <App />

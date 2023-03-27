@@ -1,6 +1,7 @@
 {
   "name": "cat-couture",
   "version": "0.1.0",
+  "homepage": "/catcouture/",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
