@@ -3,16 +3,23 @@ services:
   client:
     build:
       context: ./client
+    restart: always
     ports:
       - '3001:3000'
     depends_on:
       - server
+    environment:
+      - REACT_APP_API_URL=https://warricksmith.com/catcoutureapi/api
+      - REACT_APP_AUTH0_DOMAIN=dev-2cf59a31.us.auth0.com
+      - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
+      - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
     volumes:
       - ./client:/app/
       - /app/node_modules
   server:
     build:
       context: ./server
+    restart: always
     ports:
       - '5001:5001'
       - '9229:9229'

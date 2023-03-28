@@ -1,8 +1,27 @@
-FROM node:14-alpine
+# Use an official Node runtime as a parent image
+FROM node:16-alpine
+
+# Set the working directory to /app
 WORKDIR /app
 ENV CHOKIDAR_USEPOLLING=true
+
+# Copy package.json and package-lock.json to /app
 COPY package*.json /app/
-RUN ["npm", "install"]
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code to /app
 COPY . /app
+
+# Build the application
+RUN npm run build
+
+# Set the environment variable to production
+ENV NODE_ENV=production
+
+# Expose port 3000
 EXPOSE 3000
-ENTRYPOINT ["npm", "start"]
+
+# Start the application
+CMD ["npm", "start"]
