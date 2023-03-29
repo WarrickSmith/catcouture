@@ -1,12 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { Auth0Provider } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const Auth0ProviderWithHistory = ({ children }) => {
   const navigate = useNavigate();
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
-  const scope = "read:reports";
+  const scope = 'read:reports';
+  const redirect =
+    process.env.REACT_APP_AUTH0_REDIRECT_URI || window.location.origin;
+
+  console.log('URi >>> ', redirect);
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
@@ -18,7 +22,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
       clientId={clientId}
       audience={audience}
       scope={scope}
-      redirectUri={window.location.origin}
+      redirectUri={redirect}
       onRedirectCallback={onRedirectCallback}
     >
       {children}
