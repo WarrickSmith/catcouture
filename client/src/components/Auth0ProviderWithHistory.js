@@ -13,7 +13,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   console.log('URi >>> ', redirect);
 
   const onRedirectCallback = (appState) => {
-    navigate(appState?.returnTo || window.location.pathname);
+    navigate(appState?.returnTo);
   };
 
   return (
