@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
-import "./index.css";
-import App from "./App";
-import Auth0ProviderWithHistory from "./components/Auth0ProviderWithHistory";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import './index.css';
+import App from './App';
+import Auth0ProviderWithHistory from './components/Auth0ProviderWithHistory';
+import reportWebVitals from './reportWebVitals';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -50,14 +50,13 @@ const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/catcouture">
+    <BrowserRouter basename={'/catcouture'}>
       <Auth0ProviderWithHistory>
         <GlobalStyle />
         <App />
       </Auth0ProviderWithHistory>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
-
 reportWebVitals();

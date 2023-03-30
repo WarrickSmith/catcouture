@@ -12,7 +12,7 @@ COPY package*.json /app/
 RUN npm install
 
 # Copy the rest of the application code to /app
-COPY . /app
+COPY . /app/
 
 # Build the application
 RUN npm run build
@@ -20,8 +20,11 @@ RUN npm run build
 # Set the environment variable to production
 ENV NODE_ENV=production
 
+# Add /app/node_modules/.bin to path
+ENV PATH=/app/node_modules/.bin:$PATH 
+
 # Expose port 3000
-EXPOSE 3000
+EXPOSE 3001
 
 # Start the application
 CMD ["npm", "start"]

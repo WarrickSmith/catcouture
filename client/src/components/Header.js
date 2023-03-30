@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import LoginButton from "./LoginButton";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import LoginButton from './LoginButton';
 
 const StyledNav = styled.nav`
   width: 100%;
@@ -66,7 +66,7 @@ const Header = () => {
       <header>
         <StyledNav className="page-padding">
           <div className="menu">
-            <img src="./img/menu_black_24dp.svg" alt="menu" />
+            <img src="./catcouture/img/menu_black_24dp.svg" alt="menu" />
           </div>
           <ul className="right-links">
             <li>

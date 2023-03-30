@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
-import Loader from "./Loader";
+import { Outlet } from 'react-router-dom';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
+import Loader from './Loader';
 
 const ProtectedRoute = () => <Outlet />;
 

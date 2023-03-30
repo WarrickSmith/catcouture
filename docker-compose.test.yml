@@ -1,27 +1,40 @@
-version: "3"
+version: '3'
 services:
-  supertest:
+  client:
+    build:
+      context: ./client
+    restart: always
+    ports:
+      - '3001:3001'
+    depends_on:
+      - server
+    environment:
+      - REACT_APP_API_URL=http://localhost:5001/api
+      - REACT_APP_AUTH0_DOMAIN=dev-2cf59a31.us.auth0.com
+      - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
+      - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
+      - REACT_APP_AUTH0_REDIRECT_URI=http://localhost:3001/catcouture
+    volumes:
+      - ./client:/app/
+      - /app/node_modules
+  server:
     build:
       context: ./server
-    environment:
-      - PGDATABASE=postgres
-      - PGHOST=test_db
-      - PGUSER=postgres
-      - PGPASSWORD=password
-      - PGPORT=5432
-      - AUTH0_AUDIENCE=test
-      - AUTH0_ISSUER_BASE_URL=test
-      - NODE_ENV=test
+    restart: always
+    ports:
+      - '5001:5001'
+      - '9229:9229'
     depends_on:
-      - test_db
+      - db
     volumes:
       - ./server:/app
       - /app/node_modules
-    entrypoint: ["npm", "test"]
-  test_db:
+  db:
     build:
-      context: ./db-test
+      context: ./db
     volumes:
-      - test-db-volume:/var/lib/postgresql/data
+      - db-volume:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
 volumes:
-  test-db-volume:
+  db-volume:

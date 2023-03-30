@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import DiscountBadge from "./DiscountBadge";
+import styled from 'styled-components';
+import DiscountBadge from './DiscountBadge';
 
 const StyledProduct = styled.li`
   display: grid;
@@ -84,13 +84,13 @@ const Product = ({
       <div>
         {imageName ? (
           <img
-            src={`./img/${imageName}`}
+            src={`./catcouture/img/${imageName}`}
             alt={imageDescription}
             className="product-image"
           />
         ) : (
           <img
-            src="./img/cat-photo-default.jpg"
+            src="./catcouture/img/cat-photo-default.jpg"
             alt="Default product cat"
             className="product-image"
           />

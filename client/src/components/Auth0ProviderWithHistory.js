@@ -10,10 +10,10 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const redirect =
     process.env.REACT_APP_AUTH0_REDIRECT_URI || window.location.origin;
 
-  console.log('URi >>> ', redirect);
-
   const onRedirectCallback = (appState) => {
-    navigate(appState?.returnTo);
+    const appStateReturnUri =
+      appState?.returnTo === '/catcouture/dashboard' ? '/dashboard' : '';
+    navigate(appStateReturnUri);
   };
 
   return (

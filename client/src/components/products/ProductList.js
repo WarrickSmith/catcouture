@@ -1,5 +1,5 @@
-import Product from "./Product";
-import styled from "styled-components";
+import Product from './Product';
+import styled from 'styled-components';
 
 // CODE CITATION:
 // This source was referenced to better understand css-grid minmax usage specifically with card layouts.

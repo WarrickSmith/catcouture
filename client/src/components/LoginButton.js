@@ -1,5 +1,5 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import Loader from "./Loader";
+import { useAuth0 } from '@auth0/auth0-react';
+import Loader from './Loader';
 
 const LoginButton = () => {
   const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
@@ -14,7 +14,15 @@ const LoginButton = () => {
 
   if (isAuthenticated) {
     return (
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
+      <button
+        onClick={() =>
+          logout({
+            returnTo:
+              process.env.REACT_APP_AUTH0_REDIRECT_URI ||
+              window.location.pathname,
+          })
+        }
+      >
         Log Out
       </button>
     );
