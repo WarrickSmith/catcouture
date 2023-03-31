@@ -84,13 +84,13 @@ const Product = ({
       <div>
         {imageName ? (
           <img
-            src={`./catcouture/img/${imageName}`}
+            src={`/catcouture/img/${imageName}`}
             alt={imageDescription}
             className="product-image"
           />
         ) : (
           <img
-            src="./catcouture/img/cat-photo-default.jpg"
+            src="/catcouture/img/cat-photo-default.jpg"
             alt="Default product cat"
             className="product-image"
           />
