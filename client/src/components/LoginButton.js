@@ -28,7 +28,14 @@ const LoginButton = () => {
     );
   }
 
-  return <button onClick={() => loginWithRedirect()}>Log In</button>;
+  return (
+    <>
+      <button className="btn-login" onClick={() => loginWithRedirect()}>
+        Log In
+      </button>
+      <p style={{ fontSize: '0.75rem' }}>( guest@guest.com pw: guest )</p>
+    </>
+  )
 };
 
 export default LoginButton;
