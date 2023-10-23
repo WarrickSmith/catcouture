@@ -108,12 +108,12 @@ Only a logged in user who has `read:reports` permission can access the Dashboard
 
 The application API conforms to Open API Specification 3.0.1
 The API specification can be viewed in the test environment at: http://localhost:5001/
-The API specification can be viewed in the production environment at: https://ws-cat-couture.herokuapp.com/api
+The API specification can be viewed in the production environment at: https://warricksmith.com/catcoutureapi/
 
 ---
 
 ### View The Application
 
-The application has been deployed in production to: https://wscatcouture.netlify.app/
+The application has been deployed in production to: https://warricksmith.com/catcouture
 
 ---
