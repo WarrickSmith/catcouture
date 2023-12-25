@@ -24,4 +24,4 @@ jobs:
 
       - name: Docker compose up
         run: |
-          ssh -i key.pem -tt -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd C:\DockerApps\catcouture && docker login -u "walbob" -p "EllaMay11!" && docker-compose up --build -d"
+          ssh -i key.pem -tt -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd C:\DockerApps\catcouture && echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin && docker-compose up --build -d"
