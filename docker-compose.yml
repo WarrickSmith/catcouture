@@ -32,6 +32,7 @@ services:
   db:
     build:
       context: ./db
+    restart: always
     volumes:
       - db-volume:/var/lib/postgresql/data
     ports:
