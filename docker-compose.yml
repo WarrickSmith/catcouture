@@ -1,3 +1,45 @@
+# version: '3.8'
+# services:
+#   client:
+#     build:
+#       context: ./client
+#     restart: always
+#     ports:
+#       - '3001:3001'
+#     depends_on:
+#       - server
+#     environment:
+#       - REACT_APP_API_URL=https://warricksmith.com/catcoutureapi/api
+#       - REACT_APP_AUTH0_DOMAIN=dev-2cf59a31.us.auth0.com
+#       - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
+#       - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
+#       - REACT_APP_AUTH0_REDIRECT_URI=https://warricksmith.com/catcouture
+#     volumes:
+#       - ./client:/app/
+#       - /app/node_modules
+#   server:
+#     build:
+#       context: ./server
+#     restart: always
+#     ports:
+#       - '5001:5001'
+#       - '9229:9229'
+#     depends_on:
+#       - db
+#     volumes:
+#       - ./server:/app
+#       - /app/node_modules
+#   db:
+#     build:
+#       context: ./db
+#     restart: always
+#     volumes:
+#       - db-volume:/var/lib/postgresql/data
+#     ports:
+#       - '5432:5432'
+# volumes:
+#   db-volume:
+
 version: '3.8'
 services:
   client:
@@ -9,26 +51,21 @@ services:
     depends_on:
       - server
     environment:
-      - REACT_APP_API_URL=https://warricksmith.com/catcoutureapi/api
-      - REACT_APP_AUTH0_DOMAIN=dev-2cf59a31.us.auth0.com
-      - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
-      - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
-      - REACT_APP_AUTH0_REDIRECT_URI=https://warricksmith.com/catcouture
-    volumes:
-      - ./client:/app/
-      - /app/node_modules
+      - REACT_APP_API_URL
+      - REACT_APP_AUTH0_DOMAIN
+      - REACT_APP_AUTH0_CLIENT_ID
+      - REACT_APP_AUTH0_AUDIENCE
+      - REACT_APP_AUTH0_REDIRECT_URI
+
   server:
     build:
       context: ./server
     restart: always
     ports:
       - '5001:5001'
-      - '9229:9229'
     depends_on:
       - db
-    volumes:
-      - ./server:/app
-      - /app/node_modules
+
   db:
     build:
       context: ./db
@@ -37,5 +74,6 @@ services:
       - db-volume:/var/lib/postgresql/data
     ports:
       - '5432:5432'
+
 volumes:
   db-volume:
