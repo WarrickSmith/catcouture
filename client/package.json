@@ -1,6 +1,7 @@
 {
   "name": "cat-couture",
   "private": true,
+  "homepage": "/catcouture/",
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -32,7 +33,7 @@
     "eject": "react-scripts eject",
     "prettier:check": "prettier --check '**/*.js'",
     "lint:js": "eslint .",
-    "start:prod": "serve -s build -l 3001 --single"
+    "start:prod": "serve -s build -l 3001"
   },
   "eslintConfig": {
     "extends": [
