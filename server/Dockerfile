@@ -22,9 +22,5 @@ ENV NODE_ENV=production
 # Expose port 5001
 EXPOSE 5001
 
-# Health check for the service
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-  CMD node healthcheck.js
-
 # Start the application
 CMD ["npm", "run", "start:prod"]
