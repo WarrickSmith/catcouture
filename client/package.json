@@ -1,7 +1,5 @@
 {
   "name": "cat-couture",
-  "version": "0.1.0",
-  "homepage": "/catcouture/",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
@@ -34,7 +32,7 @@
     "eject": "react-scripts eject",
     "prettier:check": "prettier --check '**/*.js'",
     "lint:js": "eslint .",
-    "start:prod": "serve -s build -l 3001"
+    "start:prod": "serve -s build -l 3001 --single"
   },
   "eslintConfig": {
     "extends": [

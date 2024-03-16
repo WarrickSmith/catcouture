@@ -8,7 +8,10 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+# RUN npm install
+
+# Use npm ci for installing dependencies for production
+RUN npm ci --only=production
 
 # Copy the rest of the application code to /app
 COPY . .
@@ -16,8 +19,12 @@ COPY . .
 # Set the environment variable to production
 ENV NODE_ENV=production
 
-# Expose port 5000
-EXPOSE 5000
+# Expose port 5001
+EXPOSE 5001
+
+# Health check for the service
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+  CMD node healthcheck.js
 
 # Start the application
 CMD ["npm", "run", "start:prod"]
