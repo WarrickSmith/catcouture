@@ -16,6 +16,8 @@ const StyledApp = styled.div`
   }
 `;
 
+console.log(`API Server URL is: ${process.env.REACT_APP_API_URL}`)
+
 const App = () => {
   return (
     <StyledApp>
