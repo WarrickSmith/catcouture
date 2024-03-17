@@ -14,9 +14,7 @@ services:
       - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
       - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
       - REACT_APP_AUTH0_REDIRECT_URI=http://localhost:3001/catcouture
-    volumes:
-      - ./client:/app/
-      - /app/node_modules
+
   server:
     build:
       context: ./server
@@ -26,9 +24,16 @@ services:
       - '9229:9229'
     depends_on:
       - db
-    volumes:
-      - ./server:/app
-      - /app/node_modules
+
+    environment:
+      - PGDATABASE=postgres
+      - PGHOST=db
+      - PGUSER=postgres
+      - PGPASSWORD=password
+      - PGPORT=5432
+      - AUTH0_AUDIENCE=https://catcouture.com
+      - AUTH0_ISSUER_BASE_URL=https://dev-2cf59a31.us.auth0.co
+
   db:
     build:
       context: ./db

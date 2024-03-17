@@ -15,31 +15,23 @@ services:
       - REACT_APP_AUTH0_AUDIENCE
       - REACT_APP_AUTH0_REDIRECT_URI
 
-    #     DEV Environment Config:
-    # environment:
-    #   - REACT_APP_API_URL=http://localhost:5001/api
-    #   - REACT_APP_AUTH0_DOMAIN=dev-2cf59a31.us.auth0.com
-    #   - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
-    #   - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
-    #   - REACT_APP_AUTH0_REDIRECT_URI=https://warricksmith.com/catcouture
-
   server:
     build:
       context: ./server
     restart: always
     ports:
       - '5001:5001'
+      - '9229:9229'
     depends_on:
       - db
 
     environment:
-      - PGDATABASE=postgres
-      - PGHOST=db
-      - PGUSER=postgres
-      - PGPASSWORD=password
-      - PGPORT=5432
-      - AUTH0_AUDIENCE=https://catcouture.com
-      - AUTH0_ISSUER_BASE_URL=https://dev-2cf59a31.us.auth0.com/
+      - PGDATABASE
+      - PGHOST
+      - PGUSER
+      - PGPASSWORD
+      - PGPORT
+      - AUTH0_AUDIENCE
 
   db:
     build:

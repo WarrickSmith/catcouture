@@ -32,8 +32,7 @@
     "test:watch": "react-scripts test --verbose --watchAll",
     "eject": "react-scripts eject",
     "prettier:check": "prettier --check '**/*.js'",
-    "lint:js": "eslint .",
-    "start:prod": "serve -s build -l 3001"
+    "lint:js": "eslint ."
   },
   "eslintConfig": {
     "extends": [

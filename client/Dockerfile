@@ -3,7 +3,7 @@ FROM node:16-alpine
 
 # Set the working directory to /app
 WORKDIR /app
-ENV CHOKIDAR_USEPOLLING=true
+# ENV CHOKIDAR_USEPOLLING=true
 
 # Copy package.json and package-lock.json to /app
 COPY package*.json /app/
@@ -17,14 +17,8 @@ COPY . /app/
 # Build the application
 RUN npm run build
 
-# Set the environment variable to production
-ENV NODE_ENV=production
-
-# Add /app/node_modules/.bin to path
-ENV PATH=/app/node_modules/.bin:$PATH 
-
 # Expose port 3000
 EXPOSE 3001
 
 # Start the application
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start"]
