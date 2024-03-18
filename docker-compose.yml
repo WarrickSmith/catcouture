@@ -1,8 +1,6 @@
 version: '3.8'
 services:
   client:
-    env_file: 
-      - stack.env
     build:
       context: ./client
     restart: always
@@ -10,16 +8,14 @@ services:
       - '3001:3001'
     depends_on:
       - server
-    # environment:
-    #   - REACT_APP_API_URL=https://warricksmith.com/catcoutureapi
-    #   - REACT_APP_AUTH0_DOMAIN=dev-2cf59a31.us.auth0.com
-    #   - REACT_APP_AUTH0_CLIENT_ID=a7AR22dNiwqXYB2RjXGnqg5L2crVzcLz
-    #   - REACT_APP_AUTH0_AUDIENCE=https://catcouture.com
-    #   - REACT_APP_AUTH0_REDIRECT_URI=http://localhost:3001/catcouture
+    environment:
+      - REACT_APP_API_URL=${REACT_APP_API_URL}
+      - REACT_APP_AUTH0_DOMAIN=${REACT_APP_AUTH0_DOMAIN}
+      - REACT_APP_AUTH0_CLIENT_ID=${REACT_APP_AUTH0_CLIENT_ID}
+      - REACT_APP_AUTH0_AUDIENCE=${REACT_APP_AUTH0_AUDIENCE}
+      - REACT_APP_AUTH0_REDIRECT_URI=${REACT_APP_AUTH0_REDIRECT_URI}
 
   server:
-    env_file: 
-      - stack.env
     build:
       context: ./server
     restart: always
@@ -28,15 +24,14 @@ services:
       - '9229:9229'
     depends_on:
       - db
-
-    # environment:
-    #   - PGDATABASE=postgres
-    #   - PGHOST=db
-    #   - PGUSER=postgres
-    #   - PGPASSWORD=password
-    #   - PGPORT=5432
-    #   - AUTH0_AUDIENCE=https://catcouture.com
-    #   - AUTH0_ISSUER_BASE_URL=https://dev-2cf59a31.us.auth0.co
+    environment:
+      - PGDATABASE=${PGDATABASE}
+      - PGHOST=${PGHOST}
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGPORT=${PGPORT}
+      - AUTH0_AUDIENCE=${AUTH0_AUDIENCE}
+      - AUTH0_ISSUER_BASE_URL=${AUTH0_ISSUER_BASE_URL}
 
   db:
     build:
